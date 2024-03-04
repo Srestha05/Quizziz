@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZZIZ - Quiz Conducting Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS styles from the styles.css file */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #5cacf5, #ffb400);
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="text"],
+        select,
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 12px);
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #555;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        select:focus,
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #5cacf5;
+            outline: none;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #ffb400;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff9900;
+        }
+
+        #quiz-questions > div {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #quiz-url,
+        #timer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+        }
+
+        /* Additional styles for the registration form */
+        #registration-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #registration-form h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            #registration-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #fff; font-size: 36px;">QUIZZIZ</h1>
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 30px; color: #333;">Create Your Quiz</h2>
+        <div id="quiz-creation-form">
+            <label for="question">Question:</label>
+            <input type="text" id="question" placeholder="Enter your question...">
+            <label for="option1">Option 1:</label>
+            <input type="text" id="option1" placeholder="Option 1...">
+            <label for="option2">Option 2:</label>
+            <input type="text" id="option2" placeholder="Option 2...">
+            <label for="correct-answer">Correct Answer:</label>
+            <select id="correct-answer">
+                <option value="0">Option 1</option>
+                <option value="1">Option 2</option>
+            </select>
+            <button onclick="addQuestion()">Add Question</button>
+            <button onclick="generateURL()">Generate URL</button>
+        </div>
+        <div id="quiz-questions">
+            <!-- Quiz questions will be displayed here -->
+        </div>
+        <div id="quiz-url">
+            <!-- Generated URL will be displayed here -->
+        </div>
+        <div id="timer"></div>
+
+        <!-- Registration Form -->
+        <div id="registration-form" style="display: none;">
+            <h2>Registration</h2>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username...">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email...">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password...">
+            <label for="role">Role:</label>
+            <select id="role">
+                <option value="quizCreator">Quiz Creator</option>
+                <option value="quizTaker">Quiz Taker</option>
+            </select>
+            <button onclick="registerUser()">Register</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
